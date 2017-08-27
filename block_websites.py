@@ -3,8 +3,8 @@ from shutil import copyfile
 def block(website):
     return "127.0.0.1\t" + website.replace("\n", "") + "\n"
 
-
-def block_websites():
+def block_websites_func():
+    print("Blocking websites")
     copyfile("/etc/hosts" ,"/etc/hosts_backup_before_blocking")
     with open("/etc/hosts", "a") as hostsFile:
         websitesFile = open("websites.txt", "r")
@@ -16,5 +16,4 @@ def block_websites():
     hostsFile.close()
 
 
-block_websites()
 
